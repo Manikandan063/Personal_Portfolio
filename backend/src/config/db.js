@@ -1,8 +1,19 @@
 const { Sequelize } = require('sequelize');
-const env = require('./env');
+const isProduction = env.nodeEnv === 'production';
+const requiresSSL = isProduction || (env.databaseUrl && (env.databaseUrl.includes('render.com') || env.databaseUrl.includes('sslmode=require')));
+
+const dialectOptions = requiresSSL
+  ? {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false,
+      },
+    }
+  : {};
 
 const sequelize = new Sequelize(env.databaseUrl, {
   dialect: 'postgres',
+  dialectOptions,
   logging: env.nodeEnv === 'development' ? console.log : false,
 });
 
