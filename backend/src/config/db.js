@@ -1,4 +1,5 @@
 const { Sequelize } = require('sequelize');
+const env = require('./env');
 const isProduction = env.nodeEnv === 'production';
 const requiresSSL = isProduction || (env.databaseUrl && (env.databaseUrl.includes('render.com') || env.databaseUrl.includes('sslmode=require')));
 
