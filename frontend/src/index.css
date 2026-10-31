@@ -1,0 +1,179 @@
+@import "tailwindcss";
+
+:root, [data-theme="electric-amber"] {
+  --bg-base: #0B0907;
+  --bg-surface: #14110D;
+  --bg-card: rgba(26, 21, 16, 0.75);
+  --bg-card-hover: rgba(41, 33, 25, 0.9);
+  --border-color: rgba(245, 158, 11, 0.2);
+  --border-hover: rgba(245, 158, 11, 0.5);
+  --primary: #F59E0B;
+  --primary-hover: #D97706;
+  --primary-light: #FBBF24;
+  --secondary: #FB923C;
+  --accent: #F43F5E;
+  --text-main: #FAFAF9;
+  --text-muted: #A8A29E;
+  --glow: rgba(245, 158, 11, 0.28);
+  --gradient-text: linear-gradient(135deg, #FBBF24 0%, #FB923C 50%, #F43F5E 100%);
+  --gradient-btn: linear-gradient(135deg, #F59E0B 0%, #EA580C 100%);
+  --badge-bg: rgba(245, 158, 11, 0.12);
+  --badge-text: #FBBF24;
+  --badge-border: rgba(245, 158, 11, 0.3);
+}
+
+[data-theme="cyber-indigo"] {
+  --bg-base: #080B11;
+  --bg-surface: #0E1424;
+  --bg-card: rgba(16, 23, 41, 0.75);
+  --bg-card-hover: rgba(25, 36, 64, 0.9);
+  --border-color: rgba(99, 102, 241, 0.2);
+  --border-hover: rgba(99, 102, 241, 0.5);
+  --primary: #6366F1;
+  --primary-hover: #4F46E5;
+  --primary-light: #818CF8;
+  --secondary: #06B6D4;
+  --accent: #A855F7;
+  --text-main: #F8FAFC;
+  --text-muted: #94A3B8;
+  --glow: rgba(99, 102, 241, 0.28);
+  --gradient-text: linear-gradient(135deg, #818CF8 0%, #C084FC 50%, #38BDF8 100%);
+  --gradient-btn: linear-gradient(135deg, #6366F1 0%, #06B6D4 100%);
+  --badge-bg: rgba(99, 102, 241, 0.12);
+  --badge-text: #818CF8;
+  --badge-border: rgba(99, 102, 241, 0.3);
+}
+
+[data-theme="emerald-aurora"] {
+  --bg-base: #050D0A;
+  --bg-surface: #091712;
+  --bg-card: rgba(11, 30, 23, 0.75);
+  --bg-card-hover: rgba(18, 48, 37, 0.9);
+  --border-color: rgba(16, 185, 129, 0.2);
+  --border-hover: rgba(16, 185, 129, 0.5);
+  --primary: #10B981;
+  --primary-hover: #059669;
+  --primary-light: #34D399;
+  --secondary: #14B8A6;
+  --accent: #2DD4BF;
+  --text-main: #F0FDF4;
+  --text-muted: #86EFAC;
+  --glow: rgba(16, 185, 129, 0.28);
+  --gradient-text: linear-gradient(135deg, #34D399 0%, #2DD4BF 50%, #67E8F9 100%);
+  --gradient-btn: linear-gradient(135deg, #10B981 0%, #0D9488 100%);
+  --badge-bg: rgba(16, 185, 129, 0.12);
+  --badge-text: #34D399;
+  --badge-border: rgba(16, 185, 129, 0.3);
+}
+
+[data-theme="royal-violet"] {
+  --bg-base: #0A0713;
+  --bg-surface: #120D22;
+  --bg-card: rgba(23, 16, 43, 0.75);
+  --bg-card-hover: rgba(36, 25, 66, 0.9);
+  --border-color: rgba(168, 85, 247, 0.2);
+  --border-hover: rgba(168, 85, 247, 0.5);
+  --primary: #A855F7;
+  --primary-hover: #9333EA;
+  --primary-light: #C084FC;
+  --secondary: #EC4899;
+  --accent: #818CF8;
+  --text-main: #FAF5FF;
+  --text-muted: #C4B5FD;
+  --glow: rgba(168, 85, 247, 0.28);
+  --gradient-text: linear-gradient(135deg, #C084FC 0%, #F472B6 50%, #818CF8 100%);
+  --gradient-btn: linear-gradient(135deg, #A855F7 0%, #DB2777 100%);
+  --badge-bg: rgba(168, 85, 247, 0.12);
+  --badge-text: #C084FC;
+  --badge-border: rgba(168, 85, 247, 0.3);
+}
+
+@theme {
+  --color-background: var(--bg-base);
+  --color-surface: var(--bg-surface);
+  --color-card: var(--bg-card);
+  --color-card-hover: var(--bg-card-hover);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-light: var(--primary-light);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-text-primary: var(--text-main);
+  --color-text-muted: var(--text-muted);
+  --color-border: var(--border-color);
+  --color-border-hover: var(--border-hover);
+}
+
+@layer base {
+  * {
+    border-color: var(--border-color);
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--bg-base);
+    color: var(--text-main);
+    font-family: 'Outfit', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    transition: background-color 0.4s ease, color 0.4s ease;
+    overflow-x: hidden;
+  }
+}
+
+.gradient-text {
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Interactive moving gradient text for Developer */
+.developer-moving-text {
+  display: inline-block;
+  background-image: linear-gradient(
+    135deg,
+    var(--primary-light) 0%,
+    var(--secondary) 25%,
+    var(--accent) 50%,
+    var(--secondary) 75%,
+    var(--primary-light) 100%
+  );
+  background-size: 250% 250%;
+  background-position: 0% 50%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
+}
+
+.developer-moving-text:hover {
+  animation: liquidGradientWave 2.8s ease-in-out infinite;
+  filter: drop-shadow(0 0 24px var(--glow));
+  transform: translateY(-2px) scale(1.025);
+}
+
+@keyframes liquidGradientWave {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.gradient-btn {
+  background: var(--gradient-btn);
+}
+
+.glow-box {
+  box-shadow: 0 0 35px var(--glow);
+}
+
+.glow-box-sm {
+  box-shadow: 0 0 15px var(--glow);
+}
